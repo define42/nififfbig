@@ -1,0 +1,16 @@
+version: "3.5"
+services:
+ nifi:
+   image: apache/nifi
+   ports:
+     - 8083:8083/tcp
+   environment:
+     NIFI_WEB_HTTP_PORT: 8083
+ registry:
+   image: apache/nifi-registry
+   ports:
+     - 18080:18080/tcp
+ bigfile:
+   build: ./
+   ports:
+     - 8080:8080/tcp
